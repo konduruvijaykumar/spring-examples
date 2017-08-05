@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+   <bean id="foo3" class="org.pjay.springcore.setterbased.app3.Foo3">
+   	<property name="name" value="Vijay"/>
+   	<property name="pincode" value="560071"/>
+   	<property name="age" value="27"/>
+   </bean>
+   
+   <bean id="bar3" class="org.pjay.springcore.setterbased.app3.Bar3">
+   	<property name="barName" value="Raj's Bar"/>
+   	<property name="doorNo" value="123"/>
+   	<property name="foo3" ref="foo3"/>
+   </bean>
+   
+</beans>
