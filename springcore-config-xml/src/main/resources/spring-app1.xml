@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<bean id="helloWorld1" class="org.pjay.springcore.constructorbased.app1.HelloWorld1">
+		<constructor-arg ref="foo1"/>
+	</bean>
+	
+	<bean id="foo1" class="org.pjay.springcore.constructorbased.app1.Foo1">
+		<!-- <constructor-arg value="foo1Name"/>
+		<constructor-arg value="27"/>
+		<constructor-arg value="999999999"/> -->
+		<!-- There is lot of chance that spring might take age as "999999999" unless it crosses int max size limit (Then other constructor will be called), else it will take this as age -->
+		<!-- This problem can be solved by using type attribute to mention the variable type. In some other cases were same constructor has same types can use index attribute to solve the problem "index=0" specify the position of arg in cnstructor -->
+		<constructor-arg type="java.lang.String" value="foo1Name"/>
+		<constructor-arg type="int" value="27"/>
+		<constructor-arg type="java.lang.String" value="999999999"/>
+	</bean>
+	
+	<!-- Injecting null and empty string values -->
+	<!-- // This is used for setting null value to property object
+		<bean id="..." class="ExampleBean">
+	    	<property name="email"><null/></property>
+		</bean>
+	 -->
+	 
+	<!-- // This is used for setting empty value to string
+		<bean id="..." class="ExampleBean">
+	    	<property name="email" value=""/>
+		</bean>
+	 -->
+	
+</beans>
