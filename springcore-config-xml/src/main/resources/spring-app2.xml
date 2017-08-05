@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="foo2" class="org.pjay.springcore.constructorbased.app2.Foo2">
+		<!-- Error We Get:: Exception in thread "main" org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'foo2' defined in class path resource [spring-app2.xml]: Unsatisfied dependency expressed through constructor argument with index 1 of type [int]: Could not convert constructor argument value of type [java.lang.String] to required type [int]: Failed to convert value of type 'java.lang.String' to required type 'int'; nested exception is java.lang.NumberFormatException: For input string: "Vijay" -->
+		<!-- <constructor-arg value="560071"/>
+		<constructor-arg value="Vijay"/>
+		<constructor-arg value="27"/> -->
+		<!-- To avoid this we can use index to specify the position it goes in constructor or declare type of variable it is in object class -->
+		
+		<!-- Prints:: Foo2 [name=Vijay, pincode=27, age=560071] -->
+		<!-- <constructor-arg value="Vijay"/>
+		<constructor-arg value="27"/>
+		<constructor-arg value="560071"/> -->
+		<!-- Here pincode number goes to age and age to pincode which is not correct. As there are two int variables in object we cannot sole this using type and specifying variable type. This can be solved using index parameter to specify the position it goes in constructor -->
+		
+		<constructor-arg index="2" value="27"/>
+		<constructor-arg index="0" value="Vijay"/>
+		<constructor-arg index="1" value="560071"/>
+	</bean>
+
+</beans>
