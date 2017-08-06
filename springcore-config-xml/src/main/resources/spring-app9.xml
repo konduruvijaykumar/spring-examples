@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+     
+<!-- 	<bean id="foo9" class="org.pjay.springcore.beanloading.app9.Foo9" init-method="init" destroy-method="destroy" lazy-init="default"/> --><!-- After app context -->
+<!-- 	<bean id="foo9" class="org.pjay.springcore.beanloading.app9.Foo9" scope="singleton" init-method="init" destroy-method="destroy" lazy-init="default"/> --><!-- After app context -->
+<!-- 	<bean id="foo9" class="org.pjay.springcore.beanloading.app9.Foo9" scope="prototype" init-method="init" destroy-method="destroy" lazy-init="default"/> --><!-- After getbean -->
+<!-- 	<bean id="foo9" class="org.pjay.springcore.beanloading.app9.Foo9" scope="prototype" init-method="init" destroy-method="destroy" lazy-init="true"/> --><!-- For all scopes where lazy-init="true" after getbean -->
+	<bean id="foo9" class="org.pjay.springcore.beanloading.app9.Foo9" scope="prototype" init-method="init" destroy-method="destroy" lazy-init="false"/><!-- For scope="prototype" after getbean and other scopes after app context -->
+	<!-- For scope="prototype" we get instance after getbean b'coz in this scope beans are not one beans serving purpose. Every time we create bean we need a new instance, So not after app context -->
+	<!-- lazy-init attribute makes sense for singleton and not for prototype -->
+   <!-- scope="prototype" or scope="singleton" or do not specify attribute then by default is singleton -->
+   
+</beans>
