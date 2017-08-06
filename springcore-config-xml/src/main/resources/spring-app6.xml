@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+   
+   <!-- Source: http://stackoverflow.com/questions/7414794/difference-between-contextannotation-config-vs-contextcomponent-scan -->
+   <!--  <context:annotation-config/> --><!-- is used to activate annotations in beans already registered in the application context (no matter if they were defined with XML or by package scanning) -->
+   <!-- <context:component-scan> can also do what <context:annotation-config> does but <context:component-scan> also scans packages to find and register beans within the application context. -->
+   
+   <context:component-scan base-package="org.pjay.springcore.beanlifecyclemethods.app6"/><!-- if context:component-scan is present then context:annotation-config capabilities are also present. So can ignore context:annotation-config -->
+   
+   <bean id="foo6" class="org.pjay.springcore.beanlifecyclemethods.app6.Foo6" init-method="init" destroy-method="destroy">
+   	<property name="name"><value>Vijay</value></property>
+   	<!-- <property name="name"><null/></property> --><!-- Set null to name property -->
+   </bean>
+   
+   <bean id="bar6" class="org.pjay.springcore.beanlifecyclemethods.app6.Bar6" init-method="initBar6Bean" destroy-method="destroyBar6Bean"></bean><!-- bean properties are not initialized only bean is created -->
+   
+</beans>
