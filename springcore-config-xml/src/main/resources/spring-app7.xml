@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+   
+   <context:annotation-config/>
+   
+   <bean id="foo7Bean" class="org.pjay.springcore.diwithcollectionproperty.app7.Foo7">
+   	<property name="propertiesObj">
+   		<props>
+   			<prop key="1">one</prop>
+   			<prop key="2">two</prop>
+   			<prop key="3">three</prop>
+   			<prop key="4">four</prop>
+   		</props>
+   	</property>
+   	<property name="listObj">
+   		<list>
+   		<!-- By default, if we use List interface for declaring properties in bean class, Spring makes an ArrayList object for it -->
+   		<!-- By default if no type is mentioned below, then the values are converted to Strings in list object -->
+   			<value>1234</value>
+   			<value>2345</value>
+   			<value type="int">3456</value><!-- As type is mentioned as int then the value created for ArrayList as Integer and other default to Strings in list object -->
+   			<value>4567</value>
+   			<!-- <ref bean=""/> --><!-- We can also use this tag for setting value as reference object -->
+   		</list>
+   	</property>
+   	<property name="setObj">
+   		<set>
+   		<!-- By default, if we use Set interface for declaring properties in bean class, Spring makes an LinkedHashSet object for it -->
+   		<!-- By default if no type is mentioned below, then the values are converted to String -->
+   			<value type="java.lang.String">0987</value>
+   			<value>9876</value>
+   			<value>8765</value>
+   			<value>7654</value>
+   			<!-- <ref bean=""/> --><!-- We can also use this tag for setting value as reference object -->
+   		</set>
+   	</property>
+   	<property name="mapObj">
+   		<map>
+   		<!-- By default, if we use Map interface for declaring properties in bean class, Spring makes an LinkedHashMap object for it -->
+   			<entry key="VJ" value="Vijay"/>
+   			<entry key="KR" value="Kumar"/>
+   			<entry key="RJ" value="Raju"/>
+   			<entry key="KN" value="Konduru"/>
+   			<!-- <entry key=""(Used for passing key value) key-ref=""(Used for passing key Object(bean) reference) value=""(Used for passing map value) value-ref=""(Used for map value Object(bean) reference)/> -->
+   		</map>
+   	</property>
+   </bean>
+   
+</beans>
