@@ -9,7 +9,7 @@ import org.pjay.springcore.contract.Foo;
  * @author Vijay
  *
  */
-//@Primary May be used on any class directly or indirectly annotated with @Component or on methods annotated with @Bean.
+// @Primary May be used on any class directly or indirectly annotated with @Component or on methods annotated with @Bean.
 //@Primary
 //@Component
 public class FooOne implements Foo{
