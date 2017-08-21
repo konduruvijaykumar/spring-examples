@@ -8,6 +8,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * @author Vijay
+ * 
+ * https://stackoverflow.com/questions/18772490/what-is-the-difference-between-spring-factory-method-and-factory-bean
  *
  */
 public class App1 {
