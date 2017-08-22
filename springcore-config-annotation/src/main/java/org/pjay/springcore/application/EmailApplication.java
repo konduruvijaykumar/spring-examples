@@ -9,6 +9,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 /**
  * @author Vijay
+ * 
+ * http://www.logicbig.com/tutorials/spring-framework/spring-core/java-config/
+ * 
  *
  */
 public class EmailApplication {
