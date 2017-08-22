@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:util="http://www.springframework.org/schema/util"
+   xsi:schemaLocation="
+   http://www.springframework.org/schema/beans     
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd
+   http://www.springframework.org/schema/util
+   http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+   
+   <context:annotation-config/>
+   
+   <bean id="foo5Bean" class="org.pjay.springcore.annotationsetterbased.app5.Foo5">
+   	<property name="name" value="Vijay"/>
+   	<property name="pincode" value="560047"/>
+   	<property name="age" value="27"/>
+   </bean>
+   
+   <bean id="bar5" class="org.pjay.springcore.annotationsetterbased.app5.Bar5"><!-- autowire="byType" -->
+   	<!-- This works fine. we will club annotation to remove property element from here -->
+   	<!-- <property name="foo5" ref="foo5Bean"/> --> <!-- Other way is use "context:annotation-config" element as above and annotation for setter. Then Spring performs byType autowiring -->
+   	<!-- <property name="arList" ref="arList"/> -->
+   	<!-- <property name="abc" value="hello"/> -->
+   	<!-- <property name="xyz" value="234"/> -->
+   </bean>
+   
+   <util:list id="arList" value-type="java.lang.String" list-class="java.util.ArrayList">
+	   <value>vijay</value>
+	   <value>kumar</value>
+   </util:list>
+   
+</beans>
